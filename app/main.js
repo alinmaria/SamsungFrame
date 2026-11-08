@@ -491,7 +491,9 @@
   }
 
   /* ---------- Navigation targets ---------- */
-  function utils() { return ['art', 'apps', 'settings']; }
+  /* SamsungFrame fork: the target TV (UE65TU7172) is not The Frame and has no Art app, so the control stays hidden. */
+  var ART_MODE = false;
+  function utils() { return ART_MODE ? ['art', 'apps', 'settings'] : ['apps', 'settings']; }
   /* prev/next run along the apps; out goes to the controls, inn comes back (or to a per-app action). */
   function axes() {
     var v = S.c.layout === 'list';
